@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "nsqjs": "^0.13.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "get_packagelock": "docker run --rm ntos-nsq-to-opensearch cat /app/package-lock.json > ./package-lock.json"
+  },
+  "engines": {
+    "node": "^20"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

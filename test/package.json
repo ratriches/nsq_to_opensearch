@@ -1,0 +1,20 @@
+{
+  "name": "nsq_to_opensearch_test",
+  "version": "1.0.0",
+  "description": "Integração entre NSQ e OpenSearch",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "get_packagelock": "docker run --rm ntos-test cat /app/package-lock.json > ./package-lock.json"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nsqjs": "^0.13.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
