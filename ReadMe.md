@@ -8,20 +8,17 @@ Another required field for correct operation of OpenSearch is a timestamp field 
 All other fields are optional for the user.
 
 ```JS
-publish(
-    'log-json',
-    JSON.stringify({
-      topic: 'user-activity',
-      event: 'user_signin',
-      user: {
-        id: 123,
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-      },
-      opId: uuidv4(),
-      timestamp: new Date().toISOString(),
-    }),
-  );
+publish('log-json', {
+  topic: 'user-activity',
+  event: 'user_signin',
+  user: {
+    id: 123,
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+  },
+  opId: uuidv4(),
+  timestamp: new Date().toISOString(),
+});
 ```
 
 # test / usage
