@@ -1,24 +1,39 @@
-# index_management:
-http://localhost:3040/app/opensearch_index_management_dashboards#/indices?from=0&search=&showDataStreams=false&size=20&sortDirection=desc&sortField=index
-
-Nesta tela terá uma lista de index de logs que ja chegaram ao opensearch (clicar em refresh se necessário)
-Observer que o nome do index sempre comeca com 'Log_' e termina com o dia de criacao (ex: _2026_01_12), 
-isso eh assim para permitir  a rotina de clean que elimina logs de mais de 7 dias.
 
 
-# indexPatterns:
-http://localhost:3040/app/management/opensearch-dashboards/indexPatterns/
+# OpenSearch Index Management Guide
 
-Nesta tela:
-1-  clicar em 'Create index pattern',
-No campo 'Index pattern name' digitar o nome do index desejado (na pagina de antes) (digitar algo como 'Log_nome-index*, para buscar os indexes de todas as datas')
-Apos clicar em 'Next' selecionar o campo 'Time field' para o index.
+This guide explains how to manage log indexes in OpenSearch using the provided dashboards.
 
-2- sempre que necessario "atualizar os campos do log", clicar no nome do index desejado
-Isso vai abrir os detalhes do index, onde se pode visualizar todos os campos ja mapeados
-No canto superior direito, tem um botao 'Refresh field list', que se clicado atualiza essa lista com possiveis novos campos recebidos
+## Index Management
 
-# 'reset' do index
-Para "limpar o index e recriar, eh necessario apagar na pagina de 'indexPatterns' 
-Na pagina de 'indexPatterns', pode-se apagar ou clicar em 'refresh'
-Depois de receber novos logs, repetir o procedimento para criar novamente o que foi apagado
+Access:  
+http://localhost:4040/app/opensearch_index_management_dashboards#/indices?from=0&search=&showDataStreams=false&size=20&sortDirection=desc&sortField=index
+
+- On this screen, you will see a list of log indexes that have already arrived in OpenSearch (click **Refresh** if necessary).
+- Note that the index name always starts with `Log_` and ends with the creation date (e.g., `_2026_01_12`).
+- This naming convention allows the cleanup routine to delete logs older than 7 days.
+
+## Index Patterns
+
+Access:  
+http://localhost:4040/app/management/opensearch-dashboards/indexPatterns/
+
+1. Click on **Create index pattern**.
+2. In the **Index pattern name** field, enter the desired index name (e.g., `Log_index-name*` to match indexes from all dates).
+3. Click **Next**, then select the **Time field** for the index.
+
+To update the log fields:
+- Click on the desired index name.
+- This opens the index details, where you can view all mapped fields.
+- In the upper right corner, click **Refresh field list** to update the list with any new fields received.
+
+## Resetting an Index
+
+To clear and recreate an index:
+- Delete it on the **Index Patterns** page.
+- You can either delete or refresh the index pattern.
+- After receiving new logs, repeat the procedure to recreate the deleted index.
+
+## More Information
+
+For detailed explanations and screenshots, see [docs/imagesExplain.md](docs/imagesExplain.md).
