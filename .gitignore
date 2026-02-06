@@ -1,2 +1,3 @@
 persistence/opensearch/data/*
 persistence/opensearch/logs/*
+*.bk

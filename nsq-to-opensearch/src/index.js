@@ -71,7 +71,9 @@ reader.on(nsq.Reader.MESSAGE, async (msg) => {
   const id = msg.id;
   // console.log(`logData`, logData);
   const resp = await SendToOpenSearch(id, logData);
-  console.log(`${green}${new Date().toISOString()}: ${blue}Response [${id}] from OpenSearch:${reset}`, resp);
+  const codeCollor = resp?.code >= 100 && resp?.code < 300 ? green : red;
+  const result = resp?.result || {};
+  console.log(`${green}${new Date().toISOString()}: ${blue}Response [${id}] from OpenSearch:\n${codeCollor}Code: ${resp?.code}\n${codeCollor}Result: ${reset}`, result);
   msg.finish();
 });
 reader.on(nsq.Reader.DISCARD, (msg) => {
